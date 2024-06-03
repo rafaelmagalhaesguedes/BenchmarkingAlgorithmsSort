@@ -1,6 +1,7 @@
 package core;
 
 import algorithms.BubbleSort;
+import algorithms.InsertionSort;
 import algorithms.MergeSort;
 import algorithms.QuickSort;
 import algorithms.SelectionSort;
@@ -81,4 +82,23 @@ public class SortService {
     System.out.print("\n\nPerforming Quick Sort...");
     System.out.print("\nQuick Sort duration:: " + duration + "/ms");
   }
+
+  /**
+   * Quick sort strings.
+   *
+   * @param array of strings.
+   */
+  public void insertionSortStrings(String[] array) {
+    long startTime = System.nanoTime();
+
+    InsertionSort.sortArrayStrings(array);
+
+    long endTime = System.nanoTime();
+
+    long duration = (endTime - startTime) / 1000000;
+
+    System.out.print("\n\nPerforming Insertion Sort...");
+    System.out.print("\nInsertion Sort duration:: " + duration + "/ms");
+  }
+
 }
