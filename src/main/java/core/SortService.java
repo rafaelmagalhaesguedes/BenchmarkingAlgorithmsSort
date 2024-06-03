@@ -12,93 +12,71 @@ import algorithms.SelectionSort;
 public class SortService {
 
   /**
-   * Bubble sort string.
+   * Sorts the array using different sorting algorithms and prints the duration.
    *
    * @param array of strings.
    */
-  public void bubbleSortString(String[] array) {
-    long startTime = System.nanoTime();
+  public void sortAndPrintDurations(String[] array) {
+    String[] itemsForBubbleSort = array.clone();
+    String[] itemsForSelectionSort = array.clone();
+    String[] itemsForInsertionSort = array.clone();
+    String[] itemsForQuickSort = array.clone();
+    String[] itemsForMergeSort = array.clone();
 
-    BubbleSort.sortArrayStrings(array);
+    long bubbleSortDuration = measureSortTime(() -> BubbleSort.sortArrayStrings(itemsForBubbleSort));
+    long selectionSortDuration = measureSortTime(() -> SelectionSort.sortArrayStrings(itemsForSelectionSort));
+    long insertionSortDuration = measureSortTime(() -> InsertionSort.sortArrayStrings(itemsForInsertionSort));
+    long quickSortDuration = measureSortTime(() -> QuickSort.sortArrayStrings(itemsForQuickSort));
+    long mergeSortDuration = measureSortTime(() -> MergeSort.sortStrings(itemsForMergeSort));
 
-    long endTime = System.nanoTime();
+    long[] durations = {bubbleSortDuration, selectionSortDuration, insertionSortDuration, quickSortDuration, mergeSortDuration};
+    String[] algorithms = {"Bubble Sort", "Selection Sort", "Insertion Sort", "Quick Sort", "Merge Sort"};
 
-    long duration = (endTime - startTime) / 1000000;
-
-    System.out.print("\n\nPerforming Bubble Sort...");
-    System.out.print("\nBubble Sort duration: " + duration + "/ms");
+    sortDurationsAndPrintResults(durations, algorithms);
   }
 
   /**
-   * Merge sort strings.
+   * Measures the duration of the given sort operation.
    *
-   * @param array of strings.
+   * @param sortOperation the sort operation.
+   * @return the duration in milliseconds.
    */
-  public void mergeSortStrings(String[] array) {
+  private long measureSortTime(Runnable sortOperation) {
     long startTime = System.nanoTime();
 
-    MergeSort.sortStrings(array);
+    sortOperation.run();
 
     long endTime = System.nanoTime();
 
-    long duration = (endTime - startTime) / 1000000;
-
-    System.out.print("\n\nPerforming Merge Sort...");
-    System.out.print("\nMerge Sort duration:: " + duration + "/ms");
+    return (endTime - startTime) / 1000000;
   }
 
   /**
-   * Selection sort strings.
+   * Sorts the durations and prints the results.
    *
-   * @param array of strings.
+   * @param durations the durations.
+   * @param algorithms the algorithms.
    */
-  public void selectionSortStrings(String[] array) {
-    long startTime = System.nanoTime();
+  private void sortDurationsAndPrintResults(long[] durations, String[] algorithms) {
+    int n = durations.length;
 
-    SelectionSort.sortArrayStrings(array);
+    for (int i = 0; i < n - 1; i++) {
+      for (int j = 0; j < n - i - 1; j++) {
+        if (durations[j] > durations[j + 1]) {
+          long tempDuration = durations[j];
+          durations[j] = durations[j + 1];
+          durations[j + 1] = tempDuration;
 
-    long endTime = System.nanoTime();
+          String tempAlgorithm = algorithms[j];
+          algorithms[j] = algorithms[j + 1];
+          algorithms[j + 1] = tempAlgorithm;
+        }
+      }
+    }
 
-    long duration = (endTime - startTime) / 1000000;
-
-    System.out.print("\n\nPerforming Selection Sort...");
-    System.out.print("\nSelection Sort duration:: " + duration + "/ms");
+    System.out.println("\n\n+================= Sorting Algorithm Performance ===================+\n");
+    for (int i = 0; i < n; i++) {
+      System.out.printf("-> %s duration: %d ms\n\n", algorithms[i], durations[i]);
+    }
   }
-
-  /**
-   * Quick sort strings.
-   *
-   * @param array of strings.
-   */
-  public void quickSortStrings(String[] array) {
-    long startTime = System.nanoTime();
-
-    QuickSort.sortArrayStrings(array);
-
-    long endTime = System.nanoTime();
-
-    long duration = (endTime - startTime) / 1000000;
-
-    System.out.print("\n\nPerforming Quick Sort...");
-    System.out.print("\nQuick Sort duration:: " + duration + "/ms");
-  }
-
-  /**
-   * Insert sort strings.
-   *
-   * @param array of strings.
-   */
-  public void insertionSortStrings(String[] array) {
-    long startTime = System.nanoTime();
-
-    InsertionSort.sortArrayStrings(array);
-
-    long endTime = System.nanoTime();
-
-    long duration = (endTime - startTime) / 1000000;
-
-    System.out.print("\n\nPerforming Insertion Sort...");
-    System.out.print("\nInsertion Sort duration:: " + duration + "/ms");
-  }
-
 }
