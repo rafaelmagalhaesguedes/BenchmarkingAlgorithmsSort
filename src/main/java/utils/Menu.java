@@ -5,7 +5,14 @@ import core.SortService;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The type Menu.
+ */
 public class Menu {
+
+  /**
+   * Main menu.
+   */
   public static void mainMenu() {
     SortService sort = new SortService();
     FileService file = new FileService();
