@@ -1,6 +1,7 @@
 package core;
 
 import algorithms.BubbleSort;
+import algorithms.HeapSort;
 import algorithms.InsertionSort;
 import algorithms.MergeSort;
 import algorithms.QuickSort;
@@ -22,15 +23,32 @@ public class SortService {
     String[] itemsForInsertionSort = array.clone();
     String[] itemsForQuickSort = array.clone();
     String[] itemsForMergeSort = array.clone();
+    String[] itemsForHeapSort = array.clone();
 
     long bubbleSortDuration = measureSortTime(() -> BubbleSort.sortArrayStrings(itemsForBubbleSort));
     long selectionSortDuration = measureSortTime(() -> SelectionSort.sortArrayStrings(itemsForSelectionSort));
     long insertionSortDuration = measureSortTime(() -> InsertionSort.sortArrayStrings(itemsForInsertionSort));
     long quickSortDuration = measureSortTime(() -> QuickSort.sortArrayStrings(itemsForQuickSort));
     long mergeSortDuration = measureSortTime(() -> MergeSort.sortStrings(itemsForMergeSort));
+    long heapSortDuration = measureSortTime(() -> HeapSort.sortArrayStrings(itemsForHeapSort));
 
-    long[] durations = {bubbleSortDuration, selectionSortDuration, insertionSortDuration, quickSortDuration, mergeSortDuration};
-    String[] algorithms = {"Bubble Sort", "Selection Sort", "Insertion Sort", "Quick Sort", "Merge Sort"};
+    long[] durations = {
+        bubbleSortDuration,
+        selectionSortDuration,
+        insertionSortDuration,
+        quickSortDuration,
+        mergeSortDuration,
+        heapSortDuration
+    };
+
+    String[] algorithms = {
+        "Bubble Sort",
+        "Selection Sort",
+        "Insertion Sort",
+        "Quick Sort",
+        "Merge Sort",
+        "Heap Sort"
+    };
 
     sortDurationsAndPrintResults(durations, algorithms);
   }
