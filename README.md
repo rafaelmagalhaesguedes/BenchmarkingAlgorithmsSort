@@ -2,7 +2,7 @@
 
 ## Descrição
 Benchmarking Algorithms Sort é um programa em Java que permite ao usuário medir e
-comparar o desempenho de diferentes algoritmos de ordenação (Bubble Sort, Selection Sort e Merge Sort)
+comparar o desempenho de diferentes algoritmos de ordenação (Bubble Sort, Selection Sort, Quick Sort e Merge Sort)
 usando uma lista de itens lida de um arquivo Excel. O programa oferece uma interface
 interativa onde o usuário pode inserir a quantidade de itens a serem ordenados e
 visualizar o tempo de execução de cada algoritmo.
@@ -10,7 +10,7 @@ visualizar o tempo de execução de cada algoritmo.
 ## Funcionalidades
 
 - Leitura de dados de um arquivo Excel.
-- Ordenação de itens utilizando Bubble Sort, Selection Sort e Merge Sort.
+- Ordenação de itens utilizando Bubble Sort, Selection Sort, Quick Sort e Merge Sort.
 - Medição do tempo de execução dos algoritmos de ordenação.
 - Interface interativa que permite ao usuário inserir a quantidade de itens, voltar ao menu ou sair do programa.
 
@@ -56,7 +56,7 @@ visualizar o tempo de execução de cada algoritmo.
 
 3. Escolha a opção 1 para inserir o total de itens.
 4. Insira a quantidade de itens e pressione Enter.
-5. O programa lerá os dados do arquivo Excel, ordenará os itens usando Bubble Sort, Selection Sort e Merge Sort, e exibirá o tempo de execução de cada algoritmo.
+5. O programa lerá os dados do arquivo Excel, ordenará os itens usando Bubble Sort, Selection Sort, Quick Sort e Merge Sort, e exibirá o tempo de execução de cada algoritmo.
 6. Pressione Enter para voltar ao menu principal.
 7. Escolha a opção 2 para sair do programa.
 
@@ -74,13 +74,16 @@ visualizar o tempo de execução de cada algoritmo.
     Enter total items: 1000
     
     Performing Bubble Sort...
-    Bubble Sort duration: 33/ms
+    Bubble Sort duration: 443/ms
 
     Performing Selection Sort...
-    Selection Sort duration:: 13/ms
+    Selection Sort duration:: 136/ms
     
     Performing Merge Sort...
     Merge Sort duration: 1/ms
+
+    Performing Quick Sort...
+    Quick Sort duration:: 6/ms
     
     Press enter to back to the menu...
 

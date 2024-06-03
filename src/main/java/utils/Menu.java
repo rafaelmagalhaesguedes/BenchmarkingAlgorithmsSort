@@ -53,8 +53,9 @@ public class Menu {
           sort.bubbleSortString(itemsArray);
           sort.mergeSortStrings(itemsArray);
           sort.selectionSortStrings(itemsArray);
+          sort.quickSortStrings(itemsArray);
 
-          System.out.println("\n\nPress enter to back to the menu...");
+          System.out.print("\n\nPress enter to back to the menu... ");
           scanner.nextLine();
           scanner.nextLine();
           break;
