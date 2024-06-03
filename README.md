@@ -66,7 +66,7 @@ visualizar o tempo de execução de cada algoritmo.
 
     +================= Benchmarking Algorithms Sort ===================+
     
-    1. Enter total items
+    1. Run Benchmarking
     2. Exit
     
     Choose an option: 1
@@ -85,7 +85,7 @@ visualizar o tempo de execução de cada algoritmo.
 
     +================= Benchmarking Algorithms Sort ===================+
     
-    1. Enter total items
+    1. Run Benchmarking
     2. Exit
     
     Choose an option: 2
