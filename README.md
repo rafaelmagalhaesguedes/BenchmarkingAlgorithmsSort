@@ -10,7 +10,7 @@ visualizar o tempo de execução de cada algoritmo.
 ## Funcionalidades
 
 - Leitura de dados de um arquivo Excel.
-- Ordenação de itens utilizando Bubble Sort e Merge Sort.
+- Ordenação de itens utilizando Bubble Sort, Selection Sort e Merge Sort.
 - Medição do tempo de execução dos algoritmos de ordenação.
 - Interface interativa que permite ao usuário inserir a quantidade de itens, voltar ao menu ou sair do programa.
 
