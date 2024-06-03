@@ -2,17 +2,7 @@ package core;
 
 import algorithms.BubbleSort;
 import algorithms.MergeSort;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import utils.CreateExcel;
+import algorithms.SelectionSort;
 
 /**
  * The type Sort service.
@@ -55,35 +45,16 @@ public class SortService {
     System.out.print("\nMerge Sort duration:: " + duration + "/ms");
   }
 
-  /**
-   * Read excel data list.
-   *
-   * @return the list.
-   */
-  public List<String> readExcelData(int total) {
+  public void selectionSortStrings(String[] array) {
+    long startTime = System.nanoTime();
 
-    CreateExcel c = new CreateExcel();
+    SelectionSort.sortArrayStrings(array);
 
-    c.createExcel(total);
+    long endTime = System.nanoTime();
 
-    List<String> students = new ArrayList<>();
+    long duration = (endTime - startTime) / 1000000;
 
-    try (FileInputStream fis = new FileInputStream(new File("items.xlsx"));
-        Workbook workbook = new XSSFWorkbook(fis)) {
-
-      Sheet sheet = workbook.getSheetAt(0);
-
-      for (Row row : sheet) {
-        Cell cell = row.getCell(0);
-
-        if (cell != null) {
-          students.add(cell.getStringCellValue());
-        }
-      }
-    } catch (IOException e) {
-      e.getMessage();
-    }
-
-    return students;
+    System.out.print("\n\nPerforming Selection Sort...");
+    System.out.print("\nSelection Sort duration:: " + duration + "/ms");
   }
 }

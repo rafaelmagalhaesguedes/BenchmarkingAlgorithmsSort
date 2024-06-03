@@ -1,5 +1,4 @@
-package main;
-
+import core.FileService;
 import core.SortService;
 import java.util.List;
 import java.util.Scanner;
@@ -16,6 +15,7 @@ public class Main {
    */
   public static void main(String[] args) {
     SortService sort = new SortService();
+    FileService file = new FileService();
     Scanner scanner = new Scanner(System.in);
     boolean exit = false;
 
@@ -54,11 +54,12 @@ public class Main {
             }
           }
 
-          List<String> items = sort.readExcelData(total);
+          List<String> items = file.readExcelData(total);
           String[] itemsArray = items.toArray(new String[0]);
 
           sort.bubbleSortString(itemsArray);
           sort.mergeSortStrings(itemsArray);
+          sort.selectionSortStrings(itemsArray);
 
           System.out.println("\n\nPress enter to back to the menu...");
           scanner.nextLine();
