@@ -50,10 +50,27 @@ public class Menu {
           List<String> items = file.readExcelData(total);
           String[] itemsArray = items.toArray(new String[0]);
 
-          sort.bubbleSortString(itemsArray);
-          sort.mergeSortStrings(itemsArray);
-          sort.selectionSortStrings(itemsArray);
-          sort.quickSortStrings(itemsArray);
+          // Create copies of the original array for each sorting algorithm
+          String[] itemsForBubbleSort = itemsArray.clone();
+          String[] itemsForSelectionSort = itemsArray.clone();
+          String[] itemsForInsertionSort = itemsArray.clone();
+          String[] itemsForQuickSort = itemsArray.clone();
+          String[] itemsForMergeSort = itemsArray.clone();
+
+          // Sort using Bubble Sort
+          sort.bubbleSortString(itemsForBubbleSort);
+
+          // Sort using Insertion Sort
+          sort.insertionSortStrings(itemsForInsertionSort);
+
+          // Sort using Selection Sort
+          sort.selectionSortStrings(itemsForSelectionSort);
+
+          // Sort using Quick Sort
+          sort.quickSortStrings(itemsForQuickSort);
+
+          // Sort using Merge Sort
+          sort.mergeSortStrings(itemsForMergeSort);
 
           System.out.print("\n\nPress enter to back to the menu... ");
           scanner.nextLine();
