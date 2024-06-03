@@ -84,7 +84,7 @@ public class SortService {
   }
 
   /**
-   * Quick sort strings.
+   * Insert sort strings.
    *
    * @param array of strings.
    */
