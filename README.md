@@ -62,7 +62,7 @@ visualizar o tempo de execução de cada algoritmo.
 
 ## Exemplos de uso
 
-### Exemplo 1: Inserindo 1000 itens
+### Exemplo 1: Inserindo 5.000 mil itens
 
     +================= Benchmarking Algorithms Sort ===================+
     
@@ -71,23 +71,20 @@ visualizar o tempo de execução de cada algoritmo.
     
     Choose an option: 1
     
-    Enter total items: 20000
+    Enter total items: 5000
     
-    Performing Bubble Sort...
-    Bubble Sort duration: 1797/ms
+    +================= Sorting Algorithm Performance ===================+
 
-    Performing Selection Sort...
-    Selection Sort duration:: 1061/ms
+    -> Merge Sort duration: 2 ms
+   
+    -> Quick Sort duration: 3 ms
+   
+    -> Insertion Sort duration: 39 ms
+   
+    -> Selection Sort duration: 64 ms
+   
+    -> Bubble Sort duration: 137 ms
 
-    Performing Insertion Sort...
-    Insertion Sort duration:: 549/ms
-    
-    Performing Quick Sort...
-    Quick Sort duration:: 25/ms
-
-    Performing Merge Sort...
-    Merge Sort duration: 8/ms
-    
     Press enter to back to the menu...
 
 ### Exemplo 2: Saindo do Programa
